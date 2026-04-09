@@ -100,6 +100,7 @@ To request a free trial key (100 requests, no credit card):
 | Plan | Price | Requests/min | Model Access | Payment |
 |---|---|---|---|---|
 | Trial | Free | 10 | gemma3:4b | [Request trial](mailto:northstarholdings.global@gmail.com?subject=API%20Trial%20Request) |
+| Developer | $29 AUD/month | 30 | gemma3:4b | [Subscribe](https://buy.stripe.com/5kQfZg1Iq6No1wpcsI2Fa03) |
 | Basic | $99 AUD/month | 60 | gemma3:4b | [Subscribe](https://buy.stripe.com/fZu9AS5YGgnYfnf0K02Fa02) |
 | Pro | $199 AUD/month | 120 | gemma3:4b + 12b | [Subscribe](https://buy.stripe.com/28EaEWbj0fjU5MF3Wc2Fa01) |
 | Enterprise | $499 AUD/month | Unlimited | All models + SLA | [Subscribe](https://buy.stripe.com/00w3cugDk7Rs6QJeAQ2Fa00) |
