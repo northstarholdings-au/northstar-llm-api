@@ -89,29 +89,29 @@ Every request requires an `x-api-key` header. Keys are issued per client.
 
 To request a free trial key (100 requests, no credit card):
 
-**Email:** northstarholdings.global@gmail.com  
-**Subject:** API Trial Request  
+**Email:** northstarholdings.global@gmail.com
+**Subject:** API Trial Request
 **Include:** Your name, company, and intended use case
 
 ---
 
 ## Pricing
 
-| Plan | Price | Requests/min | Model Access |
-|---|---|---|---|
-| Trial | Free | 10 | gemma3:4b |
-| Basic | $99 AUD/month | 60 | gemma3:4b |
-| Pro | $199 AUD/month | 120 | gemma3:4b + 12b |
-| Enterprise | $499 AUD/month | Unlimited | All models + SLA |
+| Plan | Price | Requests/min | Model Access | Payment |
+|---|---|---|---|---|
+| Trial | Free | 10 | gemma3:4b | [Request trial](mailto:northstarholdings.global@gmail.com?subject=API%20Trial%20Request) |
+| Basic | $99 AUD/month | 60 | gemma3:4b | [Subscribe](https://buy.stripe.com/fZu9AS5YGgnYfnf0K02Fa02) |
+| Pro | $199 AUD/month | 120 | gemma3:4b + 12b | [Subscribe](https://buy.stripe.com/28EaEWbj0fjU5MF3Wc2Fa01) |
+| Enterprise | $499 AUD/month | Unlimited | All models + SLA | [Subscribe](https://buy.stripe.com/00w3cugDk7Rs6QJeAQ2Fa00) |
 
-Billing via invoice. Bank transfer accepted.
+Instant card payment via Stripe. Invoice and bank transfer available on request.
 
 ---
 
 ## Use Cases
 
 - **Healthcare:** Summarise patient notes, triage queries — data stays in Australia
-- **Legal:** Contract review, document analysis — no offshore data exposure  
+- **Legal:** Contract review, document analysis — no offshore data exposure
 - **Finance:** Report generation, client communication drafts
 - **Developers:** Prototype and build AI features without cloud API costs
 - **Compliance:** Meet data residency requirements without managing your own infrastructure
@@ -129,8 +129,8 @@ Billing via invoice. Bank transfer accepted.
 
 ## Contact
 
-**NorthStar Holdings**  
-Adelaide, South Australia  
+**NorthStar Holdings**
+Adelaide, South Australia
 northstarholdings.global@gmail.com
 
 ---
