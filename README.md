@@ -1,5 +1,3 @@
-$token = Read-Host "Enter GitHub token"
-$content = [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes(@"
 # NorthStar LLM API
 
 > Private AI inference for Australian businesses. Your data never leaves Australia.
@@ -37,7 +35,3 @@ NorthStar Holdings, Adelaide, South Australia
 northstarholdings.global@gmail.com
 
 *Built in South Australia. Serious about privacy. Priced for real business.*
-"@))
-$sha = (Invoke-RestMethod -Uri "https://api.github.com/repos/northstarholdings-au/northstar-llm-api/contents/README.md" -Headers @{Authorization="token $token"}).sha
-Invoke-RestMethod -Uri "https://api.github.com/repos/northstarholdings-au/northstar-llm-api/contents/README.md" -Method Put -Headers @{Authorization="token $token"; "Content-Type"="application/json"} -Body (ConvertTo-Json @{message="Update README.md"; content=$content; sha=$sha})
-Write-Host "Done"
