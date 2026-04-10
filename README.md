@@ -24,10 +24,16 @@ Their compliance teams are starting to notice.
 | Plan | Price | Models | Payment |
 |---|---|---|---|
 | Trial | Free | gemma3:4b | Email northstarholdings.global@gmail.com |
-| Developer | $29 AUD/month | gemma3:4b | https://buy.stripe.com/5kQfZg1Iq6No1wpcsI2Fa03 |
-| Basic | $99 AUD/month | gemma3:4b | https://buy.stripe.com/fZu9AS5YGgnYfnf0K02Fa02 |
-| Pro | $199 AUD/month | gemma3:4b + 12b | https://buy.stripe.com/28EaEWbj0fjU5MF3Wc2Fa01 |
-| Enterprise | $499 AUD/month | All models + SLA | https://buy.stripe.com/00w3cugDk7Rs6QJeAQ2Fa00 |
+| Developer | ` AUD/month | gemma3:4b | https://buy.stripe.com/5kQfZg1Iq6No1wpcsI2Fa03 |
+| Basic | ` AUD/month | gemma3:4b | https://buy.stripe.com/fZu9AS5YGgnYfnf0K02Fa02 |
+| Pro | ` AUD/month | gemma3:4b + 12b | https://buy.stripe.com/28EaEWbj0fjU5MF3Wc2Fa01 |
+| Enterprise | ` AUD/month | All models + SLA | https://buy.stripe.com/00w3cugDk7Rs6QJeAQ2Fa00 |
+
+## Legal
+
+- [Terms of Service](TERMS.md)
+- [Privacy Policy](PRIVACY.md)
+- [Refund Policy](REFUND.md)
 
 ## Contact
 
