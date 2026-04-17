@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quadrant — Capability Architecture — Free Demo</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a1628;--navy2:#0d1e38;--blue:#c9a84c;--blue2:#3a6fb1;--blue-border:rgba(74,127,193,0.22);--white:#fff;--off:rgba(232,237,245,0.75);--muted:#8898aa;--cb:rgba(255,255,255,0.07);}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:"Jost",sans-serif;background:var(--navy);color:var(--white);font-weight:300;line-height:1.6;}
+nav{display:flex;justify-content:space-between;align-items:center;padding:0 48px;height:68px;background:rgba(10,22,40,0.95);border-bottom:1px solid var(--cb);position:sticky;top:0;z-index:10;}
+.nav-brand{font-family:"Cormorant Garamond",serif;font-size:19px;font-weight:600;color:var(--white);text-decoration:none;}
+.nav-brand span{color:var(--blue);}
+.page{max-width:620px;margin:0 auto;padding:64px 24px 80px;}
+.eyebrow{font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--blue);margin-bottom:16px;}
+h1{font-family:"Cormorant Garamond",serif;font-size:clamp(28px,4vw,40px);font-weight:500;line-height:1.1;margin-bottom:12px;}
+.sub{font-size:14px;color:var(--muted);margin-bottom:36px;line-height:1.7;}
+.gate{background:var(--navy2);border:1px solid var(--blue-border);padding:36px;}
+.gate label{display:block;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--blue);margin-bottom:6px;margin-top:20px;}
+.gate label:first-of-type{margin-top:0;}
+.gate input,.gate select,.gate textarea{width:100%;background:var(--navy);border:1px solid var(--cb);color:var(--white);padding:12px 14px;font-family:"Jost",sans-serif;font-size:13px;outline:none;transition:border-color 0.2s;resize:vertical;}
+.gate input:focus,.gate select:focus,.gate textarea:focus{border-color:var(--blue);}
+.gate select{appearance:none;cursor:pointer;}
+.gate-note{font-size:12px;color:var(--muted);margin-top:20px;font-style:italic;text-align:center;}
+.demo-btn{display:block;width:100%;margin-top:24px;background:var(--blue);color:var(--white);padding:14px;font-family:"Jost",sans-serif;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.25s;}
+.demo-btn:hover{opacity:0.9;}
+.loading{text-align:center;padding:48px;display:none;}
+.spinner{width:36px;height:36px;border:2px solid var(--cb);border-top:2px solid var(--blue);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 16px;}
+@keyframes spin{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+.loading p{color:var(--muted);font-size:13px;}
+.result{display:none;margin-top:32px;}
+.watermark{background:rgba(74,127,193,0.08);border:1px solid var(--blue-border);padding:14px 18px;margin-bottom:20px;font-size:12px;color:var(--blue);text-align:center;letter-spacing:0.5px;line-height:1.6;}
+.output{background:var(--navy2);border:1px solid var(--cb);padding:28px;font-size:13px;color:var(--off);line-height:1.8;white-space:pre-wrap;max-height:420px;overflow-y:auto;margin-bottom:24px;}
+.upgrade{background:rgba(74,127,193,0.06);border:1px solid var(--blue-border);padding:24px;text-align:center;margin-bottom:24px;}
+.upgrade p{font-size:14px;color:var(--off);margin-bottom:16px;line-height:1.6;}
+.upgrade a{display:inline-block;background:var(--blue);color:var(--white);padding:12px 32px;text-decoration:none;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;}
+.upgrade a:hover{opacity:0.9;}
+.feedback{border-top:1px solid var(--cb);padding-top:24px;}
+.feedback label{display:block;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.feedback textarea{width:100%;background:var(--navy2);border:1px solid var(--cb);color:var(--white);padding:12px;font-family:"Jost",sans-serif;font-size:13px;resize:none;outline:none;height:80px;}
+.feedback textarea:focus{border-color:var(--blue);}
+.feedback-btn{margin-top:10px;background:transparent;border:1px solid var(--cb);color:var(--muted);padding:8px 20px;font-family:"Jost",sans-serif;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all 0.2s;}
+.feedback-btn:hover{border-color:var(--blue);color:var(--white);}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-brand" href="/">NorthStar Holdings <span>Trust</span></a>
+  <a style="color:var(--muted);text-decoration:none;font-size:13px;" href="/quadrant">&#8592; Back</a>
+</nav>
+<div class="page">
+  <div class="eyebrow">Free Demo — TOWER Engine</div>
+  <h1>Try a live Quadrant TOWER assessment</h1>
+  <p class="sub">Describe your capability challenge and receive a real TOWER engine assessment. No payment required — one demo per email address.</p>
+  <div id="gate" class="gate">
+    <form id="demoForm" onsubmit="runDemo(event)">
+      <label>Your full name</label>
+      <input type="text" name="name" required placeholder="e.g. James Henderson">
+      <label>Your email address</label>
+      <input type="email" name="email" required placeholder="you@organisation.com">
+      <label>Organisation</label>
+      <input type="text" name="organisation" required placeholder="e.g. Meridian Advisory Group">
+      <label>Your role</label>
+      <input type="text" name="role" required placeholder="e.g. Director, Partner, Manager">
+      <label>Where did you hear about us?</label>
+      <select name="hear_about" required>
+        <option value="">Select...</option>
+                <option>LinkedIn</option>
+                <option>Product Hunt</option>
+                <option>Google Search</option>
+                <option>Referral from a colleague</option>
+                <option>Dealstream</option>
+                <option>NDIS network / peer group</option>
+                <option>Direct outreach from NorthStar</option>
+                <option>Harvard Business Review</option>
+                <option>Forbes</option>
+                <option>Australian Financial Review</option>
+                <option>Wired</option>
+                <option>Time Magazine</option>
+                <option>Other</option>
+      </select>
+      <div style="border-top:1px solid var(--cb);margin-top:24px;padding-top:24px;">
+        
+          <label>Organisation name</label>
+          <input type="text" name="org_name" required placeholder="e.g. Meridian Advisory Group">
+          <label>Organisation type</label>
+          <select name="org_type" required><option value="Select...">Select...</option><option value="Professional services firm">Professional services firm</option><option value="Corporate">Corporate</option><option value="Government agency">Government agency</option><option value="NFP">NFP</option><option value="Other">Other</option></select>
+          <label>Primary capability challenge</label>
+          <textarea name="capability_challenge" required rows="3" placeholder="e.g. "Senior partners not developing the next generation of leaders""></textarea>
+      </div>
+      <p class="gate-note">One free demo per email address. Your details are handled in accordance with our <a href="https://northstarholdings.com.au/privacy" style="color:var(--blue);">Privacy Policy</a>.</p>
+      <button type="submit" class="demo-btn">Run Free Demo</button>
+    </form>
+  </div>
+  <div id="loading" class="loading">
+    <div class="spinner"></div>
+    <p>Generating your demo analysis — typically 30–60 seconds...</p>
+  </div>
+  <div id="result" class="result">
+    <div class="watermark">DEMO OUTPUT — TOWER engine (1 of 4 engines). Full four-engine assessment and Quadrant Schema available in the paid report.</div>
+    <div id="demoOutput" class="output"></div>
+    <div class="upgrade">
+      <p>Your demo ran the TOWER engine — strategic elevation. The full Quadrant report runs all four engines: TOWER, M8, BPS, and Ascension, producing an integrated capability score and development framework.</p>
+      <a href="https://quadrant.northstarholdings.com.au/#pricing">Get the Full Report &rarr;</a>
+    </div>
+    <div class="feedback">
+      <label>How was your demo experience? (optional)</label>
+      <textarea id="feedbackText" placeholder="Share your thoughts — all feedback is read by the Director..." maxlength="300" oninput="count(this,'fc',300)"></textarea>
+      <div class="char-count"><span id="fc">0</span>/300</div>
+      <button class="feedback-btn" onclick="submitFeedback()">Submit Feedback</button>
+    </div>
+  </div>
+</div>
+<script>
+async function runDemo(e) {
+  e.preventDefault();
+  const fd = new FormData(document.getElementById('demoForm'));
+  const data = Object.fromEntries(fd.entries());
+  document.getElementById('gate').style.display = 'none';
+  document.getElementById('loading').style.display = 'block';
+  try {
+    const res = await fetch('/demo', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data)});
+    const json = await res.json();
+    document.getElementById('loading').style.display = 'none';
+    if (json.error) { alert(json.error); document.getElementById('gate').style.display = 'block'; return; }
+    document.getElementById('demoOutput').textContent = json.output;
+    document.getElementById('result').style.display = 'block';
+    window.scrollTo({top: document.getElementById('result').offsetTop - 80, behavior:'smooth'});
+  } catch(err) {
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('gate').style.display = 'block';
+    alert('Something went wrong. Please try again.');
+  }
+}
+async function submitFeedback() {
+  const fb = document.getElementById('feedbackText').value.trim();
+  if (!fb) return;
+  await fetch('/feedback', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({feedback: fb})});
+  document.getElementById('feedbackText').placeholder = 'Thank you for your feedback.';
+  document.getElementById('feedbackText').value = '';
+}
+function count(el,id,max){document.getElementById(id).textContent=el.value.length;}
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+Allow: /llm-api
+Disallow: /demo-page
+Disallow: /demo
+Disallow: /submit
+Disallow: /form
+Disallow: /checkout
+Disallow: /webhook
+Disallow: /success
+Disallow: /feedback
+Disallow: /outputs/
+Disallow: /health
+
+# Sitemap
+Sitemap: https://northstarholdings.com.au/sitemap.xml
